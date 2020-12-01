@@ -44,55 +44,55 @@ public class UserPage {
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
 		
 		checkTax = new JButton("Check tax");
-		checkTax.addActionListener(new CheckTax());
+		checkTax.addActionListener(new CheckTaxListener());
 		panel.add(checkTax);
 		
 		updateCredentials = new JButton("Update Credentials");
-		updateCredentials.addActionListener(new UpdateCredentials());
+		updateCredentials.addActionListener(new UpdateCredentialsListener());
 		panel.add(updateCredentials);
 		
 		viewIncome = new JButton("View Income");
-		viewIncome.addActionListener(new ViewIncome());
+		viewIncome.addActionListener(new ViewIncomeListener());
 		panel.add(viewIncome);
 		
 		viewInvestment = new JButton("View Investment");
-		viewInvestment.addActionListener(new ViewInvestment());
+		viewInvestment.addActionListener(new ViewInvestmentListener());
 		panel.add(viewInvestment);
 		
 		taxCalculator = new JButton("Calculate Tax");
-		taxCalculator.addActionListener(new TaxCalculator());
+		taxCalculator.addActionListener(new TaxCalculatorListener());
 		panel.add(taxCalculator);
     }
 
-	static class CheckTax implements ActionListener{
+	static class CheckTaxListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("Check Tax button clicked");
 		}
 	}
 	
-	static class UpdateCredentials implements ActionListener{
+	static class UpdateCredentialsListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("Update Credentials button clicked");
 		}
 	}
 	
-	static class ViewIncome implements ActionListener{
+	static class ViewIncomeListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("View Income button clicked");
 		}
 	}
 	
-	static class ViewInvestment implements ActionListener{
+	static class ViewInvestmentListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("View Investment button clicked");
 		}
 	}
 	
-	static class TaxCalculator implements ActionListener{
+	static class TaxCalculatorListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("Tax Calulator button clicked");

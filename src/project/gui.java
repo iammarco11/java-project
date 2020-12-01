@@ -24,17 +24,18 @@ public class gui implements ActionListener{
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton loginButton;
+	private static JButton okButton;
+	static JFrame frame = new JFrame();
+	static JPanel panel = new JPanel();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
 		frame.setSize(800,400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Tax Portal");
-		frame.add(panel);
 		
 		placeComponents(panel);
+		frame.add(panel);
 
         frame.setVisible(true);
     }
@@ -63,11 +64,13 @@ public class gui implements ActionListener{
         loginButton.setBounds(10, 80, 80, 25);
         loginButton.addActionListener(new gui());
         panel.add(loginButton);
+        
+        okButton = new JButton("Ok");
     }
 
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("Clicked");
+		System.out.println("Login Button Clicked");
 		String username = usernameText.getText();
 		String password = passwordText.getText();
 		
@@ -83,11 +86,13 @@ public class gui implements ActionListener{
             ResultSet rs = st.executeQuery();
             
             if (rs.next()) {
-            	JOptionPane.showMessageDialog(loginButton,"You have successfully logged in");
+            	System.out.println("User " + username + " logged in");
+            	frame.dispose();
+            	UserPage userpage = new UserPage(username);
             }
             
             else{
-            	JOptionPane.showMessageDialog(loginButton,"Wrong cred");
+            	JOptionPane.showMessageDialog(okButton,"Wrong cred");
             }
 			
 		}catch (Exception e1) {

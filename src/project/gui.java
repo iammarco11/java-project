@@ -71,24 +71,26 @@ public class gui implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("Login Button Clicked");
-		String username = usernameText.getText();
+		int username = Integer.parseInt(usernameText.getText());
 		String password = passwordText.getText();
 		
 		
 		Connection connect = null;
 		try{
 			Class.forName("org.postgresql.Driver");
+			System.out.println("class done");
 			connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/tax", "postgres", "root");
+			System.out.println("connect done");
 			PreparedStatement st = (PreparedStatement) connect
-                    .prepareStatement("SELECT username, password FROM Tax_payer WHERE username=? AND password=?;");
-			st.setString(1, username);
+                    .prepareStatement("SELECT Aadhaar_no, Pan_no FROM Tax_Payer WHERE Aadhaar_no=? AND Pan_no=?;");
+			st.setInt(1, username);
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
             
             if (rs.next()) {
             	System.out.println("User " + username + " logged in");
             	frame.dispose();
-            	UserPage userpage = new UserPage(username);
+            	new UserPage(username);
             }
             
             else{

@@ -1,5 +1,7 @@
 package project;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -19,6 +21,7 @@ import javax.swing.JTextField;
 
 public class gui implements ActionListener{
 	
+	private static JLabel appTitle;
 	private static JLabel userLabel;
 	private static JTextField usernameText;
 	private static JLabel passwordLabel;
@@ -36,7 +39,7 @@ public class gui implements ActionListener{
 		
 		placeComponents(panel);
 		frame.add(panel);
-
+		frame.setBackground(Color.CYAN);
         frame.setVisible(true);
     }
 
@@ -44,24 +47,30 @@ public class gui implements ActionListener{
 
 
         panel.setLayout(null);
+        
+        appTitle = new JLabel("TAX PORTAL");
+        appTitle.setFont(new Font("SimSun", Font.PLAIN, 50));
+        appTitle.setBounds(150, 20, 300, 75);
+        panel.add(appTitle);
+        
         userLabel = new JLabel("Username");
-        userLabel.setBounds(10,20,80,25);
+        userLabel.setBounds(150,100,80,25);
         panel.add(userLabel);
 
         usernameText = new JTextField(20);
-        usernameText.setBounds(100,20,165,25);
+        usernameText.setBounds(240,100,165,25);
         panel.add(usernameText);
 
         passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(10,50,80,25);
+        passwordLabel.setBounds(150,130,80,25);
         panel.add(passwordLabel);
 
         passwordText = new JPasswordField(20);
-        passwordText.setBounds(100,50,165,25);
+        passwordText.setBounds(240,130,165,25);
         panel.add(passwordText);
 
         loginButton = new JButton("login");
-        loginButton.setBounds(10, 80, 80, 25);
+        loginButton.setBounds(150, 160, 80, 25);
         loginButton.addActionListener(new gui());
         panel.add(loginButton);
         

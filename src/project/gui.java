@@ -27,6 +27,7 @@ public class gui implements ActionListener{
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton loginButton;
+	private static JButton registerButton;
 	private static JButton okButton;
 	static JFrame frame = new JFrame();
 	static JPanel panel = new JPanel();
@@ -39,7 +40,6 @@ public class gui implements ActionListener{
 		
 		placeComponents(panel);
 		frame.add(panel);
-		frame.setBackground(Color.CYAN);
         frame.setVisible(true);
     }
 
@@ -53,7 +53,7 @@ public class gui implements ActionListener{
         appTitle.setBounds(150, 20, 300, 75);
         panel.add(appTitle);
         
-        userLabel = new JLabel("Username");
+        userLabel = new JLabel("Aadhaar No:");
         userLabel.setBounds(150,100,80,25);
         panel.add(userLabel);
 
@@ -61,7 +61,7 @@ public class gui implements ActionListener{
         usernameText.setBounds(240,100,165,25);
         panel.add(usernameText);
 
-        passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Pan No:");
         passwordLabel.setBounds(150,130,80,25);
         panel.add(passwordLabel);
 
@@ -70,9 +70,14 @@ public class gui implements ActionListener{
         panel.add(passwordText);
 
         loginButton = new JButton("login");
-        loginButton.setBounds(150, 160, 80, 25);
+        loginButton.setBounds(150, 180, 80, 25);
         loginButton.addActionListener(new gui());
         panel.add(loginButton);
+        
+        registerButton = new JButton("Register");
+        registerButton.setBounds(280, 180, 100, 25);
+        registerButton.addActionListener(new registerListener());
+        panel.add(registerButton);
         
         okButton = new JButton("Ok");
     }
@@ -103,12 +108,23 @@ public class gui implements ActionListener{
             }
             
             else{
-            	JOptionPane.showMessageDialog(okButton,"Wrong cred");
+            	JOptionPane.showMessageDialog(okButton,"Wrong credentials, please register");
             }
 			
 		}catch (Exception e1) {
 	         e1.printStackTrace();
 	         System.exit(0);
+		}
+	}
+	
+	static class registerListener implements ActionListener {
+		
+		registerListener() {
+			 
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+			
 		}
 	}
     

@@ -74,10 +74,10 @@ public class gui implements ActionListener{
         loginButton.addActionListener(new gui());
         panel.add(loginButton);
         
-        registerButton = new JButton("Register");
+        /*registerButton = new JButton("Register");
         registerButton.setBounds(280, 180, 100, 25);
-        registerButton.addActionListener(new registerListener());
-        panel.add(registerButton);
+        registerButton.addActionListener();
+        panel.add(registerButton);*/
         
         okButton = new JButton("Ok");
     }
@@ -115,17 +115,5 @@ public class gui implements ActionListener{
 	         e1.printStackTrace();
 	         System.exit(0);
 		}
-	}
-	
-	static class registerListener implements ActionListener {
-		
-		registerListener() {
-			 
-		}
-		
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-    
+	}    
 }
